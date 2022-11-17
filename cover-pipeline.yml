@@ -1,0 +1,21 @@
+resources:
+  repositories:
+  - repository: source
+    type: github
+    endpoint: 'bemobolo'
+    name: 'bemobolo/Bem.Collections.WeakDictionary'
+    ref: refs/heads/main
+    trigger: 
+    - main
+  - repository: templates
+    type: git
+    name: Bem.Collections.WeakDictionary/Bem.Collections.WeakDictionary
+
+variables:
+- template: release-variables.yml@templates
+
+pool:
+  vmImage: 'windows-latest'
+  
+jobs:
+  - template: cover-pipeline.yml@templates
